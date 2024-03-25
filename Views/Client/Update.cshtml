@@ -1,0 +1,158 @@
+@model mvczeke.Entities.ClientInfo
+@using mvczeke.Entities
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    form {
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+
+    label {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        font-weight: 400;
+    }
+
+    input[type="submit"] {
+        width: auto;
+        padding: 10px 20px;
+        color: #040404;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+
+    form {
+        background: rgba(245, 243, 243, 0.32);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(3.1px);
+        -webkit-backdrop-filter: blur(3.1px);
+        border: 1px solid rgba(255, 255, 255, 1);
+    }
+
+    h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-cta {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<h1
+    style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+    Update Client Info
+</h1>
+
+<form asp-action="update" method="post">
+    <input type="hidden" asp-for="Id">
+    <div class="row">
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="UserType"></label>
+            <select asp-for="UserType" class="form-control">
+                @foreach (var UserType in (List<Usertype>)ViewData["UserTypes"])
+                {
+                    <option value="@UserType.Id">@UserType.Name</option>
+                }
+            </select>
+            <span asp-validation-for="UserType" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="FirstName"></label>
+            <input asp-for="FirstName" class="form-control">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="MiddleName"></label>
+            <input asp-for="MiddleName" class="form-control">
+            <span asp-validation-for="MiddleName" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="LastName"></label>
+            <input asp-for="LastName" class="form-control">
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="Address"></label>
+            <input asp-for="Address" class="form-control">
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="ZipCode"></label>
+            <input asp-for="ZipCode" class="form-control">
+            <span asp-validation-for="ZipCode" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="Birthdate"></label>
+            <input asp-for="Birthdate" class="form-control">
+            <span asp-validation-for="Birthdate" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="Age"></label>
+            <input asp-for="Age" class="form-control">
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="NameofFather"></label>
+            <input asp-for="NameofFather" class="form-control">
+            <span asp-validation-for="NameofFather" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="NameofMother"></label>
+            <input asp-for="NameofMother" class="form-control">
+            <span asp-validation-for="NameofMother" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="Civilstatus"></label>
+            <input asp-for="Civilstatus" class="form-control">
+            <span asp-validation-for="Civilstatus" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="Religion"></label>
+            <input asp-for="Religion" class="form-control">
+            <span asp-validation-for="Religion" class="text-danger"></span>
+        </div>
+
+        <div class="col-12 mb-3">
+            <label class="form-label" asp-for="Occupation"></label>
+            <input asp-for="Occupation" class="form-control">
+            <span asp-validation-for="Occupation" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="btn-cta">
+        <input type="submit" class="btn btn-info" value="Submit">
+    </div>
+</form>
